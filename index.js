@@ -71,6 +71,22 @@ app.post('/insertData', (req, res) => {
     })
 })
 
+app.post('/deleteData', (req, res) => {
+    const reqBody = req.body
+    try {
+        ExpDate.findByIdAndRemove(reqBody._id, err => {
+            if (err) console.log(err)
+            else {
+                console.log(reqBody.name + "removed")
+            }
+        })
+        res.sendStatus(200)
+    } catch (error) {
+        console.log(error) 
+        res.sendStatus(404)
+    }
+})
+
 
 app.listen(PORT, () => {
     console.log('Server running at 5000')
