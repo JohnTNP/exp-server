@@ -2,6 +2,8 @@ const Express = require('express')
 const cors = require('cors')
 const mongoose = require('mongoose')
 
+let PORT = process.env.PORT || 5000
+
 const app = Express()
 app.use(Express.json())
 app.use(cors())
@@ -70,6 +72,6 @@ app.post('/insertData', (req, res) => {
 })
 
 
-app.listen(5000, () => {
+app.listen(PORT, () => {
     console.log('Server running at 5000')
 })
